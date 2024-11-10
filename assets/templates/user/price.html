@@ -1,0 +1,72 @@
+
+     <!-- Quote Start -->
+     <div class="container-fluid py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row justify-content-center g-5 ">
+               
+                <div class="col-lg-6">
+                    <div class="bg-primary rounded h-100 d-flex align-items-center p-5 wow zoomIn" data-wow-delay="0.9s">
+                        <form class="contact-form" method ="post" enctype="multipart/form-data" name="myform" onsubmit="return regvalidation()"> 
+
+                            {% csrf_token %}
+                            
+                            {% if messages %}              
+                            {% for message in messages %}
+                              {% if message.level == DEFAULT_MESSAGE_LEVELS.WARNING %}
+                                  <script>swal({
+                                    title: "Error",
+                                    text: "{{message}}",
+                                    icon: "warning",
+                                    button: "OK",
+                                  });
+                                </script>
+                                
+                              {% elif message.level == DEFAULT_MESSAGE_LEVELS.INFO %}
+                                  <script>swal({
+                                    title: "Success :)",
+                                    text: "{{message}}",
+                                    icon: "success",
+                                    button: "OK",
+                                  });
+                                </script>
+                              {% endif %}              
+                            {% endfor %} 
+                          {% endif %}
+                            <div class="section-title text-center position-relative">
+                                <h3 class="text-light mb-5">User Register</h3>
+                            </div>
+                            <div class="row g-3">
+                                <div class="col-xl-12"> 
+                                    <input type="text" class="form-control bg-light border-0" placeholder="Your Name" name="user_name" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="email" class="form-control bg-light border-0" placeholder="Your Email" name="email" style="height: 55px;">
+                                </div>
+                                <div class="col-xl-12">
+                                    <input type="password" class="form-control bg-light border-0" placeholder="Password" name="password" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="tel" class="form-control bg-light border-0" placeholder="Mobile Number" name="mobile" style="height: 55px;">
+                                </div>
+                               
+                                <div class="col-12">
+                                    <input type="date" class="form-control bg-light border-0" placeholder="Date of Birth" name="dob" style="height: 55px;">
+                                </div>
+                                <div class="col-xl-12">
+                                    <input type="text" class="form-control bg-light border-0" name="location" placeholder="Location" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <input type="file" class="form-control bg-light border-0" name="user_image" placeholder="Upload Image" style="height: 55px;">
+                                </div>
+                                <div class="col-12">
+                                    <button  class="btn btn-dark w-100 py-3" type="submit">Register</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Quote End -->
+    
